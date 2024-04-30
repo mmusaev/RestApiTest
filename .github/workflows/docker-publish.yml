@@ -35,7 +35,7 @@ jobs:
           # has InsiteSoftware with capitals and it needs to be lowered, but that's
           # annoying to do in github actions, it has to be another step or bash expansion.
           #tags: ${{ env.REGISTRY }}/insitesoftware/jrtest:yolo
-          tags: ${{ env.REGISTRY }}/insitesoftware/jrtest:${{ github.sha }}
+          tags: ${{ env.REGISTRY }}/mmusaev/restapitest:${{ github.sha }}
 # Publishing and installing a package with GitHub Actions - GitHub Docs
 # You can configure a workflow in GitHub Actions to automatically publish or install a package from GitHub Packages.
 # [Wednesday 2:20 PM] Jonathan Robertson
