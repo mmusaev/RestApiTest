@@ -16,6 +16,10 @@ jobs:
       packages: write
  
     steps:
+      - name: Get version
+        id: get_version
+        run: echo "::set-output name=version::$(cat version.txt)"
+        shell: bash
       - name: Checkout repository
         uses: actions/checkout@v4
  
@@ -31,12 +35,4 @@ jobs:
         with:
           context: .
           push: true
-          # Manually put insitesoftware/jrtest here because the default env.IMAGE_NAME
-          # has InsiteSoftware with capitals and it needs to be lowered, but that's
-          # annoying to do in github actions, it has to be another step or bash expansion.
-          #tags: ${{ env.REGISTRY }}/insitesoftware/jrtest:yolo
-          tags: ${{ env.REGISTRY }}/mmusaev/restapitest:${{ github.sha }}
-# Publishing and installing a package with GitHub Actions - GitHub Docs
-# You can configure a workflow in GitHub Actions to automatically publish or install a package from GitHub Packages.
-# [Wednesday 2:20 PM] Jonathan Robertson
-# And the tag "yolo" should be a valid version number that increments or the hash of the current commit.
+          tags: ${{ env.REGISTRY }}/mmusaev/restapitest:${{ steps.get_version.outputs.version }}
