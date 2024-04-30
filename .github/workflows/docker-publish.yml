@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Get version
         id: get_version
-        run: echo "::set-output name=version::$(cat .github/workflows/version.txt | tr -d '\n')"
+        run: echo "::set-output name=version::$(cat version.txt)"
         shell: bash
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,4 +35,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/mmusaev/restapitest:${{ steps.get_version.outputs.version }}
+          tags: ${{ env.REGISTRY }}/mmusaev/restapitest:${{ github.sha }}
