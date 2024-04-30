@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Get version
         id: get_version
-        run: echo "::set-output name=version::$(cat version.txt)"
+        run: echo "::set-output name=version::$(cat .github/workflows/version.txt | tr -d '\n')"
         shell: bash
       - name: Checkout repository
         uses: actions/checkout@v4
