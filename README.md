@@ -1,1 +1,1 @@
-trigger ubuntu24 - one more
+trigger ubuntu24 - restart vm test
