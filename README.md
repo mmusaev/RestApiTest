@@ -1,1 +1,1 @@
-trigger runners
+trigger ubuntu24
