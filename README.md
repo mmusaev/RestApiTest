@@ -1,1 +1,1 @@
-trigger ubuntu24
+trigger ubuntu24 - one more
